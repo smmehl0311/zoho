@@ -3,9 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
-const logger = require('morgan');
-
-const usersRouter = require('./routes/users');
 
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.dev.js');
@@ -22,11 +19,6 @@ const middlewareOptions = {
 app.use(webpackDevMiddleware(webpack(webpackConfig), middlewareOptions));
 app.use('/public/styles', lessMiddleware('./public/styles'));
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
-// app.use(logger('dev'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
@@ -52,9 +44,6 @@ const generateHtml = () => {
       </body>
   </html>`
 }
-
-// app.use(indexRouter);
-// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
