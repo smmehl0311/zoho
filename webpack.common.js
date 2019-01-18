@@ -17,16 +17,30 @@ module.exports = {
         test: /\.less$/,
         use: [
           {loader: "style-loader"},
+          {loader: "less-loader"},
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
-              modules: true,
-              localIdentName: "[local]___[hash:base64:5]"
+              sourceMap: true
             }
-          },
-          {loader: "less-loader"}
+          }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\??\#?v=[.0-9]+)?$/,
+        loader: 'file-loader?name=[name].[ext]',
       },
       {
         test: /\.js$/,
@@ -37,11 +51,6 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         use: {loader: "babel-loader"}
-      },
-      {
-        test: /\.json$/,
-        exclude: /node_modules/,
-        use: {loader: "json-loader"}
       }
     ]
   }
