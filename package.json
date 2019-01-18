@@ -1,10 +1,10 @@
 {
-  "name": "temp",
+  "name": "zoho",
   "version": "0.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smmehl0311/temp.git"
+    "url": "git+https://github.com/smmehl0311/zoho.git"
   },
   "main": "./public/scripts/index.js",
   "scripts": {
